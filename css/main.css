@@ -1,0 +1,15 @@
+.container {
+    text-align: center;
+}
+
+#myCanvas {
+    width: 200px;
+    height: 100px;
+    margin: 20px auto;
+    border: 1px solid black;
+    box-shadow: 0 0 5px;
+}
+
+#myImg {
+    display: none;
+}
