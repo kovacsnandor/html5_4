@@ -43,6 +43,57 @@
         </div>
     </nav>
 
+        
+    <h3>Drag end Drop példa</h3>
+    <!-- Drag and Drop -->
+    <div class="container drop-container">
+        
+        <!-- Forrás -->
+        <div class="source"
+            ondragover="allowDrop(event)"
+            onmouseover="allowDrop(event)"
+            onmouseout="dropLeaved(event)"
+            ondrop="drop(event)">
+            
+            <!-- Képek a dobozban -->
+            <img src="img/img_w3slogo.gif" id="img1"
+                 draggable="true"
+                 ondragstart="drag(event)"
+                 data-ar="1000">
+            <img src="img/img_w3slogo.gif" id="img2"
+                 draggable="true"
+                 ondragstart="drag(event)"
+                 data-ar="1250">
+            <img src="img/img_w3slogo.gif" id="img3"
+                 draggable="true"
+                 ondragstart="drag(event)"
+                 data-ar="1510">
+            <!-- /Képek a dobozban -->
+            
+            <div class="price-div"></div>
+            
+        </div>
+        <!-- /Forrás -->
+        
+        <!-- Cél -->
+        <div class="target" 
+             ondragover="allowDrop(event)"
+             onmouseover="allowDrop(event)"
+             onmouseout="dropLeaved(event)"
+             ondrop="drop(event)">
+            
+            <div class="price-div"></div>
+        </div>
+        <!-- /Cél -->
+        
+        <div class="ar-div">
+            0 Ft
+        </div>
+       
+    </div>
+    <!-- /Drag and Drop -->
+        
+    <h3>Canvas példa</h3>
     <!-- Canas -->
     <div class="container">
         <img id="myImg" src="img/avatar.jpg">
@@ -51,6 +102,7 @@
     </div>
     <!-- /Canas -->
 
+    <h3>SVG példa</h3>
     <!-- SVG -->
     <div class="container">
         <svg>
@@ -58,8 +110,7 @@
         </svg>
     </div>
     <!-- /SVG -->
-        
-        
+    
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
     <script src="js/main.js"></script>

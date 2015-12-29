@@ -13,3 +13,31 @@
 #myImg {
     display: none;
 }
+
+.drop-container {
+    background-color: aliceblue;
+    box-shadow: 0 0 5px;
+}
+
+.drop-container .source, .drop-container .target{
+    width:200px;
+    height: 200px;
+    margin: 10px;
+    
+    border: 1px solid black;
+    background-color: white;
+}
+
+.drop-container img {
+    margin: 0 auto;
+    width: 80%;
+}
+
+
+.price-div {
+    
+    height: 30px;
+    bottom: 0; 
+    background-color: aqua;
+}
+

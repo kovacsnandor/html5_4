@@ -37,6 +37,62 @@ function fillImg() {
     context.drawImage(img,0,0);
 }
 
+// Kép húzása és dobása
+// Alapértelmezett esemény beállítása
+function allowDrop(ev){
+    //Letiltjuk, megelőzzük a böngésző alap kezelését
+    //console.log(ev.target)
+    //ev.target.style.border = "dashed 5px #e0e0e0";
+    ev.preventDefault();
+}
+
+//Amikor az elemről lehúzzák az egeret
+function dropLeaved(ev){
+    //ev.target.style.border="solid 1px black";
+    ev.preventDefault();
+}
+
+// Az elem húzásának megkezdése
+function drag(ev) {
+    // id nevű adatba töltjük a kép id-jét
+    ev.dataTransfer.setData("id", ev.target.id);
+}
+
+//Amikor bedobják az elemet
+function drop(ev) {
+    ev.preventDefault();
+    
+    // Esemény célpontja
+    var div = ev.target;
+    
+    // Elem hozzáadása
+    // Ez a forrásból áthúzott kép
+    var id = ev.dataTransfer.getData("id");
+    // Ez a forrásból áthúzott kép szülője
+    var sdiv = document.querySelector("#" + id).parentNode;
+    //console.log(id);
+    div.appendChild(document.querySelector("#" + id));
+    
+    // Ár kalkulálása
+    calcPrice(div);
+    calcPrice(sdiv);
+}
+
+
+//
+function calcPrice(div) {
+    // Keressük a "data-ar" attribútumú elemeket a div elemben
+    var order = div.querySelectorAll("[data-ar]")
+    // végmegyünk az order elemein
+    var price = 0;
+    Array.prototype.forEach.call(order, function(item){
+        var ar = item.getAttribute("data-ar")
+        price += parseInt(ar,10);
+    });
+    
+    div.querySelector(".price-div").innerHTML=price + " Ft";
+    //console.log(price);
+}
 
 // Kép rajzolás
 fillImg();
